@@ -1,6 +1,6 @@
 export default function play() {
   // * GOOD FOR DATA STRUCTURES
-  //   interface Person {
+  //   interface IPerson {
   //     name: string;
   //     age: number;
   //   }
@@ -31,7 +31,7 @@ export default function play() {
   //     }
   //   }
   // * EXTENDS INTERFACE
-  //   interface Person {
+  //   interface IPerson {
   //     kind: "business" | "academic";
   //     name: string;
   //     age: number;
@@ -78,6 +78,15 @@ export default function play() {
   //     //   return _never;
   //     // }
   //   };
+  // * TYPECASTING
+  // interface ISample {
+  //   name: string;
+  // }
+  // let b = {
+  //   name: "John",
+  // };
+  // // let a = b as ISample;
+  // // let a = <ISample>b;
   // * GENERIC ARRAY
   //   function iterate(items: Array<string>) {
   //     for (const item of items) {
@@ -85,4 +94,80 @@ export default function play() {
   //     }
   //   }
   //   iterate(["a", "b", "c"]);
+  // * GENERIC EXTENDS
+  // interface IPerson {
+  //   name: string;
+  //   age: number;
+  //   city: string;
+  // }
+  // interface IStudent extends IPerson {
+  //   grade: number;
+  // }
+  // interface ILogger<T extends IPerson> {
+  //   data: T;
+  //   log(): void;
+  // }
+  // const logger: ILogger<IStudent> = {
+  //   data: {
+  //     name: "John",
+  //     age: 30,
+  //     city: "New York",
+  //     grade: 10,
+  //   },
+  //   log() {
+  //     console.log(this.data.name);
+  //   },
+  // };
+  // * TERNARY EXTENDS
+  //   interface StudentInfo<T extends Student = Student> {
+  // type StudentInfo<T extends any = Student> = T extends Student ? {
+  //   data: T
+  //   grades: number[]
+  // }
+  // } : string
+  // type Car = {engine: string}
+  // * SINGLE TYPES
+  // type SingleType<T> = T extends any[] ? T[number] : unknown;
+  // type Type1 = SingleType<string[]>;
+  // type Type2 = SingleType<number[]>;
+  // type Type3 = SingleType<Person>;
+  // * MAPPED TYPES
+  // type CustomArray<T> = {
+  //   [index: number]: string;
+  // };
+  // type CustomObject<T = string | number | Person> = {
+  //   [key: string]: T;
+  // };
+  // * INFER
+  // type ReturnType<T> = T extends () => infer R ? R : unknown;
+  // function logger() {
+  //   return "hello world";
+  // }
+  // const loggerReturn: ReturnType<typeof logger> = "sdd";
+  // // * KEYOF
+  // interface Person {
+  //   name: string;
+  //   age: number;
+  // }
+  // type KeyOf<T> = keyof T;
+  // type KeyOfPerson = KeyOf<Person>;
+  // const key: KeyOfPerson = "name";
+  // * INFER RETURN TYPE
+  // type InferHelloProps<T> = T extends () => Promise<{ props: infer Props }>
+  //   ? Props
+  //   : never;
+  // const getHelloProps = async function () {
+  //   const greeting = "Hello";
+  //   return {
+  //     props: {
+  //       greeting,
+  //       data: {
+  //         cars: ["car1", "car2"],
+  //       },
+  //     },
+  //   };
+  // };
+  // function sayHello(props: InferHelloProps<typeof getHelloProps>) {
+  //   console.log(props.greeting);
+  // }
 }

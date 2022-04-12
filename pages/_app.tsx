@@ -1,7 +1,13 @@
 import { AppProps } from "next/app";
-import { Layout } from "@components/common";
+import { FunctionComponent } from "react";
 
-function MyApp({ Component, pageProps }: AppProps) {
+const Noop: FunctionComponent<Element> = ({ children }) => <>{children}</>;
+
+function MyApp({
+  Component,
+  pageProps,
+}: AppProps & { Component: { Layout: FunctionComponent<any> } }) {
+  const Layout = Component.Layout ?? Noop;
   return (
     <Layout>
       <Component {...pageProps} />

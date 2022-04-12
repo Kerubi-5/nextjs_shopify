@@ -6,6 +6,7 @@ export interface ProductImage {
 export interface Product {
   id: string;
   name: string;
+  vendor: string;
   description: string;
   slug: string;
   path: string;

@@ -1,6 +1,6 @@
-import { FC } from "react";
+import { FunctionComponent, ReactNode } from "react";
 
-const Layout: FC<{ children: JSX.Element }> = ({ children }) => {
+const Layout: FunctionComponent<{ children: ReactNode }> = ({ children }) => {
   return <div className="layout">{children}</div>;
 };
 

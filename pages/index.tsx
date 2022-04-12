@@ -1,19 +1,19 @@
-import { useEffect } from "react";
-import play from "../playground";
+import type { InferGetStaticPropsType } from "next";
+import getAllProducts from "../framework/shopify/product/get-all-products";
 
-export default function Home() {
-  const Person: { firstName: string; lastName: string } = {
-    firstName: "John Kim",
-    lastName: "Querobines",
+export async function getStaticProps() {
+  const products = await getAllProducts();
+
+  return {
+    props: {
+      products,
+    },
+    revalidate: 4 * 60 * 60,
   };
+}
 
-  useEffect((): void => {
-    play();
-  }, []);
-
-  return (
-    <div>
-      Intro: Hello World! My Name is {Person.firstName + " " + Person.lastName}
-    </div>
-  );
+export default function Home({
+  products,
+}: InferGetStaticPropsType<typeof getStaticProps>) {
+  return <div>{JSON.stringify(products)}</div>;
 }

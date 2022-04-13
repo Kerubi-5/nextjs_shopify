@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "autoprefixer": "^10.4.4",
     "deepmerge": "^4.2.2",
     "next": "12.1.4",
     "prettier": "^2.6.2",

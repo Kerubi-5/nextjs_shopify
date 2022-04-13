@@ -1,5 +1,6 @@
 import { AppProps } from "next/app";
 import { ReactNode, FunctionComponent } from "react";
+import "@assets/main.css";
 
 const Noop: FunctionComponent<Element> = ({ children }) => <>{children}</>;
 

@@ -1,11 +1,18 @@
-import { FunctionComponent, ReactNode } from "react";
+import { FC } from "react";
 import s from "./Layout.module.css";
+import { Footer, Navbar } from "@components/common";
 
-const Layout: FunctionComponent<{ children: ReactNode }> = ({ children }) => {
+type Props = {
+  children: React.ReactNode;
+};
+
+const Layout: FC<Props> = ({ children }) => {
   return (
-    <>
-      <main className={s.root}>{children}</main>
-    </>
+    <div className={s.root}>
+      <Navbar />
+      <main className="fit">{children}</main>
+      <Footer />
+    </div>
   );
 };
 

@@ -1,6 +1,10 @@
 export default function play() {
+  // ? WHY USE TYPESCRIPT
+  // refactor;
+  // documentation;
+  // debugging;
   // * GOOD FOR DATA STRUCTURES
-  // interface Person {
+  // interface IPerson {
   //   name: string;
   //   age: number;
   // }
@@ -22,30 +26,24 @@ export default function play() {
   //   return "Hello world";
   // };
   // * OPTIONAL PARAMETERS
-  // TODO: Change this GENERIC FUNCTIONS NOT WORKING
-  // function printInfo(someObject: { [key: string]: unknown }) {
-  //   if (typeof someObject.age === "string") {
-  //     someObject.age.toUpperCase();
-  //   }
-  // }
+  // const person: IPerson = {
+  //   name: "John",
+  //   age: 30,
+  //   job: true,
+  // };
   // * EXTENDS INTERFACE
-  // interface IPerson {
-  //   kind: "business" | "academic" | "developer"; // business or academic
+  // interface Person {
+  //   kind: "business" | "academic";
   //   name: string;
   //   age: number;
   // }
-  // interface BusinessPerson extends IPerson {
+  // interface BusinessPerson extends Person {
   //   kind: "business";
   //   salary: number;
   // }
-  // interface AcademicPerson extends IPerson {
+  // interface AcademicPerson extends Person {
   //   kind: "academic";
   //   publications: string[];
-  // }
-  // * NEVER CASE
-  // interface DeveloperPerson extends IPerson {
-  //   kind: "developer";
-  //   skills: string[];
   // }
   // * EXTENDS TYPES
   // type Car = {
@@ -54,21 +52,20 @@ export default function play() {
   // type RaceCar = {
   //   speed: number;
   // } & Car & { mileage: number };
-  // RaceCar = name, speed, mileage
   // * JOIN OPERATIONS
   // type Human = BusinessPerson | AcademicPerson;
-  // // ! ERROR SHOULD BE ABLE TO ACCESS ALL PROPERTIES
   // const person: Human = {
   //   // You can access all properties from Business and Academic
+  //   // kind: "academic",
   //   name: "John",
   //   age: 30,
-  //   salary: 1000,
-  //   publications: ["book1", "book2"],
+  //   // publications: ["book1", "book2"],
+  //   // salary: 1000,
   // };
   // const logHuman = (h: Human) => {
-  //   // Only common values can be accessed
-  //   console.log(h.name);
-  //   // Narrow to specify what to see
+  // Only common values can be accessed
+  // console.log(h.name);
+  // Narrow to specify what to see
   //   if ("salary" in h) {
   //     console.log(h.salary);
   //   } else if ("publications" in h) {

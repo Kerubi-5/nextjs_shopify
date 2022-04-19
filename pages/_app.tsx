@@ -2,6 +2,7 @@ import "@assets/main.css";
 import { AppProps } from "next/app";
 import { FC, ReactNode } from "react";
 import { UIProvider } from "@components/ui/context";
+import "keen-slider/keen-slider.min.css";
 
 type Props = {
   children: ReactNode | ReactNode[];

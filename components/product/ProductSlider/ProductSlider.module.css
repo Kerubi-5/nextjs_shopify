@@ -5,7 +5,7 @@
 
 .leftControl,
 .rightControl {
-  @apply absolute top-1/2 -translate-x-1/2 z-20 w-16 h-16 flex items-center justify-center bg-hover-1 rounded-full;
+  @apply absolute top-1/2 z-20 w-16 h-16 flex items-center justify-center bg-hover-1 rounded-full;
 }
 
 .leftControl:hover,
@@ -20,13 +20,13 @@
 
 .leftControl {
   @apply bg-cover left-10;
-  background-image: url("/public/cursor-left.png");
+  background-image: url("/cursor-left.png");
   @apply md:left-6;
 }
 
 .rightControl {
   @apply bg-cover right-10;
-  background-image: url("/public/cursor-right.png");
+  background-image: url("/cursor-right.png");
 
   @apply md:right-6;
 }

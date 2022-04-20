@@ -3,7 +3,8 @@ const fs = require("fs");
 const merge = require("deepmerge");
 const prettier = require("prettier");
 
-const ALLOWED_FW = ["shopify", "bigcommerce"];
+const ALLOWED_FW = ["shopify", "bigcommerce", "shopify_local"];
+const FALLBACK_FW = "shopify";
 
 function withFrameworkConfig(defaultConfig = {}) {
   const framework = defaultConfig?.framework.name;
@@ -18,6 +19,10 @@ function withFrameworkConfig(defaultConfig = {}) {
         ", "
       )}`
     );
+  }
+
+  if (framework === "shopify_local") {
+    framework = FALLBACK_FW;
   }
 
   const frameworkNextConfig = require(path.join(

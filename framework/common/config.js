@@ -7,15 +7,17 @@ const ALLOWED_FW = ["shopify", "bigcommerce", "shopify_local"];
 const FALLBACK_FW = "shopify";
 
 function withFrameworkConfig(defaultConfig = {}) {
-  const framework = defaultConfig?.framework.name;
+  let framework = defaultConfig?.framework?.name;
 
   if (!framework) {
-    throw new Error("Framework name is required");
+    throw new Error(
+      "The api framework is missing, please add a valid provider!"
+    );
   }
 
   if (!ALLOWED_FW.includes(framework)) {
     throw new Error(
-      `Framework "${framework}" is not supported, please use ${ALLOWED_FW.join(
+      `The api framework: ${framework} cannot be found, please use one of ${ALLOWED_FW.join(
         ", "
       )}`
     );

@@ -53,14 +53,14 @@ export default function play() {
   //   speed: number;
   // } & Car & { mileage: number };
   // * JOIN OPERATIONS
+  // ! This is intersection
   // type Human = BusinessPerson | AcademicPerson;
   // const person: Human = {
   //   // You can access all properties from Business and Academic
-  //   // kind: "academic",
+  //   kind: "academic",
   //   name: "John",
   //   age: 30,
-  //   // publications: ["book1", "book2"],
-  //   // salary: 1000,
+  //   publications: ["book1", "book2"],
   // };
   // const logHuman = (h: Human) => {
   // Only common values can be accessed

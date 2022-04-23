@@ -1,5 +1,5 @@
 import { ApiFetcherOptions, ApiFetcherResults } from "@common/types/api";
-import { API_URL } from "@framework/const";
+import { API_URL, STOREFRONT_TOKEN } from "@framework/const";
 
 const fetchApi = async <T>({
   query,
@@ -9,6 +9,7 @@ const fetchApi = async <T>({
     method: "POST",
     headers: {
       "Content-Type": "application/json",
+      "X-Shopify-Storefront-Access-Token": STOREFRONT_TOKEN!,
     },
     body: JSON.stringify({
       query,
@@ -16,7 +17,8 @@ const fetchApi = async <T>({
     }),
   });
   const { data, errors } = await res.json();
-
+  // ?? is checking if left hand expression is null or undefined -> if it is go with right expression
+  // || is checking if left hand expression is null, undefined, "", 0, false
   if (errors) {
     throw new Error(errors[0].message ?? errors.message);
   }
